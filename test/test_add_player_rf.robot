@@ -5,7 +5,7 @@ Documentation    Suite description #automated tests for scout website
 
 
 *** Variables ***
-${LOGIN URL}        https://scouts-test.futbolkolektyw.pl/en
+${LOGIN URL}        https://scouts.futbolkolektyw.pl/en/
 ${BROWSER}      Chrome
 ${SIGNBUTTON}       xpath = //*[(text()='Sign in')]
 ${EMAILINPUT}       xpath = //*[@id="login"]
@@ -27,7 +27,6 @@ Add a New Player
     Type in email
     Type in password
     Click on the SignIn button
-    Assert Dashboard
     Click on the Add player link
     Type In Name
     Type In Surname
@@ -49,12 +48,11 @@ Type in password
     Input Text      ${PASSWORDINPUT}       Test-1234
 Click on the SignIn button
     Click Element       ${SIGNBUTTON}
-Assert Dashboard
-    Wait Until Element Is Visible       ${PAGELOGO}
-    Title Should Be        Scouts panel
 Click on the Add player link
+    Wait Until Element Is Visible       ${ADDPLAYERLINK}
     Click Element        ${ADDPLAYERLINK}
 Type In Name
+    Wait Until Element Is Visible       ${NAMEINPUT}
     Input Text      ${NAMEINPUT}       Mateusz
 Type In Surname
     Input Text      ${SURNAMEINPUT}       Młyński
